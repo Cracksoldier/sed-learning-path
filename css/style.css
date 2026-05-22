@@ -245,10 +245,12 @@ a:hover { text-decoration: underline; }
   line-height: 1.2;
 }
 
-.tier-subtitle {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  margin-top: 2px;
+.tier-subtitle-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+  display: block;
 }
 
 .tier-progress-wrap {

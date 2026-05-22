@@ -256,9 +256,7 @@
 
     const titleBlock = el('div', { class: 'tier-title-block' });
     titleBlock.appendChild(el('div', { class: 'tier-title', textContent: tier.title + ' — ' + tier.subtitle }));
-    const badgeEl = el('code', { class: 'tier-badge', style: 'display:none' }); // hidden, just for reference
-    badgeEl.textContent = tier.badge;
-    titleBlock.appendChild(el('div', { class: 'tier-subtitle' })); // spacer
+    titleBlock.appendChild(el('code', { class: 'tier-subtitle-badge', textContent: tier.badge }));
     header.appendChild(titleBlock);
 
     const pw = progressBar('tier-fill-' + tier.id, 'tier-pct-' + tier.id, stats.done, stats.total, null);
@@ -375,7 +373,7 @@
       state = defaultState();
       saveState();
       renderApp();
-      bindAppEvents();
+      syncCheckboxes();
       updateAllProgress();
       showToast('Progress reset.', 'success');
     });
@@ -404,7 +402,7 @@
         state = migrateState(parsed);
         saveState();
         renderApp();
-        bindAppEvents();
+        syncCheckboxes();
         updateAllProgress();
         showToast('Progress imported.', 'success');
       } catch (err) {
@@ -445,7 +443,7 @@
   function init() {
     state = loadState();
     renderApp();
-    bindAppEvents();
+    bindAppEvents();   // registered once on the persistent #app element
     bindHeaderEvents();
     syncCheckboxes();
     updateAllProgress();
