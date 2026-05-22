@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sed — Learning Path</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-top">
+      <h1 class="site-title"><span class="prompt">$</span> sed --learning-path</h1>
+      <div class="header-actions">
+        <button id="btn-export" class="btn btn-secondary" title="Download progress as JSON">Export Progress</button>
+        <button id="btn-import" class="btn btn-secondary" title="Load a previously exported JSON file">Import Progress</button>
+        <input type="file" id="file-input" accept=".json" style="display:none" aria-hidden="true">
+        <button id="btn-reset" class="btn btn-danger" title="Clear all progress">Reset</button>
+      </div>
+    </div>
+    <div class="overall-progress-wrap">
+      <span class="progress-label">Overall Progress</span>
+      <div class="progress-bar" role="progressbar" aria-label="Overall learning path progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="progress-fill" id="overall-progress-fill"></div>
+      </div>
+      <span class="progress-pct" id="overall-progress-pct">0%</span>
+    </div>
+  </header>
+
+  <main id="app">
+    <p class="loading-msg">Loading...</p>
+  </main>
+
+  <script src="js/content.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
